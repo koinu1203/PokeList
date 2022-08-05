@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +12,8 @@ import { PokemonPageRoutingModule } from './pokemon-page-routing.module';
   ],
   imports: [
     CommonModule,
-    PokemonPageRoutingModule
+    PokemonPageRoutingModule, 
+    NgbModule
   ]
 })
 export class PokemonPageModule { }

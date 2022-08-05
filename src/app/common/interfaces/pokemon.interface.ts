@@ -24,6 +24,7 @@ export interface IMoves{
 
 export interface ISpecies{
     name:string;
+    url: string; 
 }
 
 export interface IStats{

@@ -3,25 +3,59 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IPokemon } from '../interfaces/pokemon.interface';
 import { environment } from 'src/environments/environment';
-import { IListConfig, IPokemonList } from '../interfaces';
+import {
+  IEvolutionChain,
+  IListConfig,
+  IPokemonList,
+  IPokemonSpecies,
+} from '../interfaces';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PokeApiService {
-  constructor(private http:HttpClient) { }
 
-  public getByName(pokemonName: string):Observable<IPokemon>{
-    return this.http.get<IPokemon>(
-      `${environment.api}pokemon/${pokemonName}`
-    );
+  constructor(private http: HttpClient) {}
+  
+  public getPokemon(pokemonName: string): Promise<IPokemon> {
+    return new Promise((resolve) => {
+      this.http.get<IPokemon>(`${environment.api}pokemon/${pokemonName}`)
+        .subscribe((res) => {
+          resolve(res);
+        });
+    });
   }
-  public getList(start: number, limit: number):Observable<IPokemonList>{
-    return this.http.get<IPokemonList>(
-      `${environment.api}pokemon?offset=${start}&limit=${limit}`
-    );
+  public getList(start: number, limit: number): Promise<IPokemonList> {
+    return new Promise((resolve) => {
+      this.http.get<IPokemonList>(`${environment.api}pokemon?offset=${start}&limit=${limit}`)
+        .subscribe((res) => {
+          resolve(res);
+        });
+    });
   }
-  public getListConfig():Observable<IListConfig>{
-    return this.http.get<IListConfig>('../../../assets/config/list.config.json');
+  public getListConfig(): Promise<IListConfig> {
+    return new Promise((resolve) => {
+      this.http.get<IListConfig>('../../../assets/config/list.config.json')
+        .subscribe((res) => {
+          resolve(res);
+        });
+    });
+  }
+
+  public getChainURL(pokemonId: number): Promise<IPokemonSpecies> {
+    return new Promise((resolve) => {
+      this.http
+        .get<IPokemonSpecies>(`${environment.api}pokemon-species/${pokemonId}/`)
+        .subscribe((res) => {
+          resolve(res);
+        });
+    });
+  }
+  public getEvolutiveList(chainURL: string): Promise<IEvolutionChain> {
+    return new Promise((resolve) => {
+      this.http.get<IEvolutionChain>(chainURL).subscribe((res) => {
+        resolve(res);
+      });
+    });
   }
 }

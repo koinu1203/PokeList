@@ -22,27 +22,20 @@ export class LandingPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.getConfigList();
+    this.initResources();
   }
-  public getConfigList() {
-    this.pokeApi
-      .getListConfig()
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res) => {
-        this.configList = res;
-        this.getAllPokemons();
-      });
+  private async initResources() {
+    try {
+      this.configList = await this.pokeApi.getListConfig();
+      const response = await this.pokeApi.getList(0, this.configList.count);
+      this.tableComplete = response;
+      this.tableShow = response;
+      this.configTableShow();
+    } catch (e) {
+      // console.log(e);
+    }
   }
-  private getAllPokemons() {
-    this.pokeApi
-      .getList(0, this.configList.count)
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res) => {
-        this.tableComplete = res;
-        this.tableShow = res;
-        this.configTableShow();
-      });
-  }
+  
   private configTableShow() {
     const start = this.configList.page * this.configList.pageSize;
     const end =
@@ -52,4 +45,7 @@ export class LandingPageComponent implements OnInit, OnDestroy {
     this.tableShow.results = this.tableComplete.results.splice(start, end);
     console.log(this.tableShow);
   }
+  public onSearchedKeyUp() {}
+  public onSearchedBackSpace() {}
+  public onSearched() {}
 }

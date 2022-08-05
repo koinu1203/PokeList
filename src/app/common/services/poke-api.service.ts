@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IPokemon } from '../interfaces/pokemon.interface';
 import { environment } from 'src/environments/environment';
-import { IPokemonList } from '../interfaces';
+import { IListConfig, IPokemonList } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +21,7 @@ export class PokeApiService {
       `${environment.api}pokemon?offset=${start}&limit=${limit}`
     );
   }
-  
+  public getListConfig():Observable<IListConfig>{
+    return this.http.get<IListConfig>('../../../assets/config/list.config.json');
+  }
 }

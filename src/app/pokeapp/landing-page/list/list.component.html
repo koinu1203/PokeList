@@ -1,16 +1,16 @@
-<table class="table table-striped">
+<table class="table table-striped" *ngIf="dataTable&&configList">
     <thead>
         <tr>
             <th scope="col"><i class="fa-solid fa-hashtag"></i></th>
-            <th scope="col">Pokemon Name</th>
-            <th scope="col">Sprite</th>
+            <th scope="col">Pokemon</th>
+            <th scope="col">Imagen</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>hola</td>
-            <td>hola</td>
+        <tr *ngFor="let pokemon of dataTable.results; let i = index">
+            <th scope="row">{{i+startCountNum+1}}</th>
+            <td>{{pokemon.name | uppercase}}</td>
+            <td><img [src]="spritesUrl+(i+startCountNum+1)+'.png'" alt="pokemon {{pokemon.name}}"></td>
         </tr>
     </tbody>
 </table>

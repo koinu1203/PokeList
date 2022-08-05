@@ -7,6 +7,7 @@ import { ListComponent } from './list/list.component';
 import { LandingPageRoutingModule } from './landing-page-routing.module';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PokeApiService } from 'src/app/common/services/poke-api.service';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule
-  ]
+  ],
+  providers: [PokeApiService],
 })
 export class LandingPageModule { }

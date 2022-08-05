@@ -1,1 +1,17 @@
-<p>searcher works!</p>
+<form [formGroup]="form">
+    <div class="input-group mb-3">
+        <div class="form-floating">
+            <input type="text"
+                   class="form-control"
+                   id="search-pokemon"
+                   placeholder="Insert a pokemon"
+                   formControlName="name">
+            <label for="floatingEmptyPlaintextInput"> Insert a pokemon</label>
+        </div>
+        <button class="input-group-text btn btn-primary"
+            (click)="onSearch()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Search
+        </button>
+    </div>
+</form>

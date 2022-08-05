@@ -15,7 +15,8 @@ import { PokemonPageModule } from './pokemon-page/pokemon-page.module';
     CommonModule,
     PokeappRoutingModule,
     LandingPageModule,
-    PokemonPageModule
+    PokemonPageModule,
+
   ]
 })
 export class PokeappModule { }

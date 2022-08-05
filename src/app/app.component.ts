@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PokeList';
+  constructor(){}
 }

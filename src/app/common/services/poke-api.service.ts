@@ -18,11 +18,13 @@ export class PokeApiService {
   constructor(private http: HttpClient) {}
   
   public getPokemon(pokemonName: string): Promise<IPokemon> {
-    return new Promise((resolve) => {
+    return new Promise((resolve,reject) => {
       this.http.get<IPokemon>(`${environment.api}pokemon/${pokemonName}`)
         .subscribe((res) => {
+          console.log(res);
           resolve(res);
         });
+      
     });
   }
   public getList(start: number, limit: number): Promise<IPokemonList> {

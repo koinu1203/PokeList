@@ -8,6 +8,8 @@ import { LandingPageRoutingModule } from './landing-page-routing.module';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PokeApiService } from 'src/app/common/services/poke-api.service';
+import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { PokeApiService } from 'src/app/common/services/poke-api.service';
     LandingPageRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    NgbModule
   ],
   providers: [PokeApiService],
 })

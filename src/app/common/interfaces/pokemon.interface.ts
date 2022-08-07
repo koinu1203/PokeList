@@ -1,4 +1,4 @@
-export interface IPokemon{
+export interface    IPokemon{
     abilities: Array<IAbilities>;
     height: number;
     id: number;

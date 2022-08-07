@@ -4,7 +4,7 @@ import { PokemonPageComponent } from './pokemon-page.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: '**',
     component: PokemonPageComponent,
   }
 ];

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { environment } from './../../../environments/environment';
 import { IPokemon } from './../../common/interfaces/pokemon.interface';
 import { Component, OnInit } from '@angular/core';
@@ -11,19 +12,24 @@ import { IChain, IEvolutionChain, IPokemonEvolutionChain } from 'src/app/common/
 })
 export class PokemonPageComponent implements OnInit {
   public pokemon!: IPokemon;
+  public activeTab=1;
   public genChainEvol!: Array<IPokemonEvolutionChain>;
   public artWorkUrl: string = environment.artWorkUrl;
+  public spriteUrl: string = environment.spritesUrl;
   private chainEvol!: IEvolutionChain;
-  constructor(private pokeApi: PokeApiService) {
+  constructor(private pokeApi: PokeApiService, private router:Router) {
     this.genChainEvol=new Array();
   }
 
   ngOnInit(): void {
     this.initResources();
   }
+  
   private async initResources(){
     try{
-      const pokemonName = localStorage.getItem('pokemonName') as string;
+      const pokemonName = this.router.url.split('/')[2];
+      console.log('pokemonName', pokemonName);
+
       this.pokemon= await this.pokeApi.getPokemon(pokemonName);
       const response = await this.pokeApi.getChainURL(this.pokemon.id);
       this.chainEvol = await this.pokeApi.getEvolutiveList(response.evolution_chain.url);
@@ -36,7 +42,7 @@ export class PokemonPageComponent implements OnInit {
     }catch(e){
       // console.log(e);
     }finally{
-      console.log(this.genChainEvol);
+      // console.log(this.genChainEvol);
     }
   }
   

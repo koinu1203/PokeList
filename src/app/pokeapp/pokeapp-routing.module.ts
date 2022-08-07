@@ -9,14 +9,14 @@ const routes: Routes = [
     component: PokeappComponent,
     children: [
       {
-        path: 'pokemon-page',
+        path: '',
         loadChildren: () =>
           import('./landing-page/landing-page.module').then(
             (m) => m.LandingPageModule
           ),
       },
       {
-        path: '',
+        path: 'pokemon-page',
         loadChildren: () =>
           import('./pokemon-page/pokemon-page.module').then(
             (m) => m.PokemonPageModule

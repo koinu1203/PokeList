@@ -3,7 +3,7 @@ export interface    IPokemon{
     height: number;
     id: number;
     base_experience: string;
-    isDefault: boolean;
+    is_default: boolean;
     name: string;
     order: number;
     species:ISpecies;
@@ -14,6 +14,11 @@ export interface    IPokemon{
 }
 
 export interface IAbilities{ 
+    ability: IAbility;
+    slot: number;
+    is_hidde:boolean;
+}
+export interface IAbility{
     name: string;
     url: string;
 }

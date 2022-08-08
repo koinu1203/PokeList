@@ -1,17 +1,19 @@
 <div class="container text-center">
-    <div class="row justify-content-between">
+    <div class="row d-flex justify-content-md-between ">
         <ngb-pagination *ngIf="configList"
                         [collectionSize]="configList.count"
                         [(page)]="configList.page"
                         [pageSize]="configList.pageSize"
-                        [maxSize]="7"
+                        [maxSize]="5"
+                        size="md"
+                        [directionLinks]="false"
                         [disabled]="isLoading"
                         [rotate]="true"
                         (pageChange)="onChangePage($event)"
-                        class="col align-self-start col-5"
+                        class="col col-md-4 p-0 d-flex justify-content-md-start justify-content-center"
                         aria-label="Default pagination">
         </ngb-pagination>
-        <div class="col col-4 align-self-end mb-4">
+        <div class="col col-12 col-md-4 align-self-center mb-4 p-0">
             <form [formGroup]="form">
                 <select class="form-select"
                         aria-label="Default select example"
@@ -27,12 +29,12 @@
     </div>
 
 </div>
-<table class="table table-striped bg-success  bg-opacity-10"
+<table class="table table-striped bg-primary bg-opacity-10"
        *ngIf="dataTable&&configList">
     <thead>
         <tr>
             <th scope="col"><i class="fa-solid fa-hashtag"></i></th>
-            <th scope="col">Pokemon</th>
+            <th scope="col">Pokémon</th>
             <th scope="col">Imagen</th>
         </tr>
     </thead>
@@ -40,9 +42,22 @@
         <tr *ngFor="let pokemon of dataTable.results; let i = index">
             <th scope="row">{{i+getStartNumber()+1}}</th>
             <td><a href="#/pokemon-page/{{pokemon.name}}"
-                   class="link-info">{{pokemon.name | uppercase}}</a></td>
+                   class="link-primary">{{pokemon.name | uppercase}}</a></td>
             <td><img [src]="spritesUrl+(i+getStartNumber()+1)+'.png'"
                      alt="pokemon {{pokemon.name}}"></td>
         </tr>
     </tbody>
 </table>
+<ngb-pagination *ngIf="configList"
+[collectionSize]="configList.count"
+[(page)]="configList.page"
+[pageSize]="configList.pageSize"
+[maxSize]="5"
+size="md"
+[directionLinks]="false"
+[disabled]="isLoading"
+[rotate]="true"
+(pageChange)="onChangePage($event)"
+class="d-flex justify-content-center"
+aria-label="Default pagination">
+</ngb-pagination>

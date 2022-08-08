@@ -31,7 +31,6 @@ export class ListComponent implements OnInit {
     return (this.configList.page-1)* this.configList.pageSize;
   }
   public onDetailsPokemon(pokemonName:string){
-    localStorage.setItem('pokemonName',pokemonName);
     this.router.navigate([`/pokemon-page/${pokemonName}`]);
   }
   onChangePage(page:number){

@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 
 import { PokemonPageComponent } from './pokemon-page.component';
 import { PokemonPageRoutingModule } from './pokemon-page-routing.module';
+import { DataComponent } from './data/data.component';
 
 
 @NgModule({
   declarations: [
-    PokemonPageComponent
+    PokemonPageComponent,
+    DataComponent
   ],
   imports: [
     CommonModule,

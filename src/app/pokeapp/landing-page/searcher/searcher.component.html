@@ -4,16 +4,16 @@
             <input type="text"
                    class="form-control"
                    id="search-pokemon"
-                   placeholder="Insert a pokemon"
+                   placeholder="Insert a pokémon"
                    formControlName="name"
                    (keyup)="onkeyUp()"
                    (keydown.backspace)="onBackSpace()"
                    >
-            <label for="floatingEmptyPlaintextInput"> Insert a pokemon</label>
+            <label for="floatingEmptyPlaintextInput"> Insert a pokémon</label>
         </div>
         <button class="input-group-text btn btn-primary"
             (click)="onClickSearch()">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-magnifying-glass me-2"></i>
             Search
         </button>
     </div>

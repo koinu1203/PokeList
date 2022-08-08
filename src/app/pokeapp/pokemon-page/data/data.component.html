@@ -1,0 +1,39 @@
+<div *ngIf="pokemonData">
+    <!-- <p>Data: {{pokemonData|json}}</p> -->
+    <table class="table table-striped">
+        <!-- <thead>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead> -->
+        <tbody>
+            <tr>
+                <th scope="row">Abilities</th>
+                <td scope="row">{{dataSheet.abilities}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Height</th>
+                <td scope="row">{{dataSheet.height}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Weight</th>
+                <td scope="row">{{dataSheet.weight}}</td>
+            </tr>
+
+            <tr>
+                <th scope="row">Is Initial</th>
+                <td scope="row">{{dataSheet.isInitial}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Types</th>
+                <td scope="row">{{dataSheet.types}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Is Initial</th>
+                <td scope="row">{{dataSheet.isInitial}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

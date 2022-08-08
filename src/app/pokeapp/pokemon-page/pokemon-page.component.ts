@@ -24,7 +24,11 @@ export class PokemonPageComponent implements OnInit {
   ngOnInit(): void {
     this.initResources();
   }
-  
+  onShowOtherPokemon(pokemonName:string){
+    this.router.navigate([`/pokemon-page/${pokemonName}`]).then(()=>{
+      this.initResources();
+    });
+  }
   private async initResources(){
     try{
       const pokemonName = this.router.url.split('/')[2];

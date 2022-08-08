@@ -1,0 +1,20 @@
+<form [formGroup]="form">
+    <div class="input-group mb-3">
+        <div class="form-floating">
+            <input type="text"
+                   class="form-control"
+                   id="search-pokemon"
+                   placeholder="Insert a pokémon"
+                   formControlName="name"
+                   (keyup)="onkeyUp()"
+                   oninput="this.value = this.value.toUpperCase()"
+                   >
+            <label for="floatingEmptyPlaintextInput"> Find your pokémon</label>
+        </div>
+        <button class="input-group-text btn btn-primary"
+            (click)="onClickSearch()">
+            <i class="fa-solid fa-magnifying-glass me-2"></i>
+            Search
+        </button>
+    </div>
+</form>

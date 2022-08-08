@@ -1,0 +1,12 @@
+<div class="text-center mb-5">
+    <h1>Pokémon List</h1>
+</div>
+<app-searcher (clickSearch)="onSearched($event)"
+              (keyUp)="onSearchedKeyUp($event)">
+</app-searcher>
+<app-list [dataTable]="tableShow"
+          [configList]="configList"
+          [isLoading]="(isLoading$|async)!"
+          (changePage)="onChangePage($event)"
+          (changePagination)="onChangePagination($event)">
+</app-list>

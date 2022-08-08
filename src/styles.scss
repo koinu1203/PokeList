@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import './assets/styles/font';
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+h1{
+    color: #ffcb05;
+    font-size: 2em;
+    font-weight: bold;
+    -webkit-text-stroke: 1px #3564ae;
+}

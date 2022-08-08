@@ -43,8 +43,9 @@
             <th scope="row">{{i+getStartNumber()+1}}</th>
             <td><a href="#/pokemon-page/{{pokemon.name}}"
                    class="link-primary">{{pokemon.name | uppercase}}</a></td>
-            <td><img [src]="spritesUrl+(i+getStartNumber()+1)+'.png'"
-                     alt="pokemon {{pokemon.name}}"></td>
+            <td><a href="#/pokemon-page/{{pokemon.name}}">
+                <img [src]="spritesUrl+(pokemon.id)+'.png'"
+                     alt="pokemon {{pokemon.name}}"></a></td>
         </tr>
     </tbody>
 </table>

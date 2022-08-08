@@ -1,12 +1,5 @@
 <div *ngIf="pokemonData">
-    <!-- <p>Data: {{pokemonData|json}}</p> -->
     <table class="table table-striped">
-        <!-- <thead>
-            <tr>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead> -->
         <tbody>
             <tr>
                 <th scope="row">Abilities</th>
@@ -29,11 +22,6 @@
                 <th scope="row">Types</th>
                 <td scope="row">{{dataSheet.types}}</td>
             </tr>
-            <tr>
-                <th scope="row">Is Initial</th>
-                <td scope="row">{{dataSheet.isInitial}}</td>
-            </tr>
-
         </tbody>
     </table>
 </div>

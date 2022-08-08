@@ -21,7 +21,6 @@ export class PokeApiService {
     return new Promise((resolve,reject) => {
       this.http.get<IPokemon>(`${environment.api}pokemon/${pokemonName}`)
         .subscribe((res) => {
-          console.log(res);
           resolve(res);
         });
       

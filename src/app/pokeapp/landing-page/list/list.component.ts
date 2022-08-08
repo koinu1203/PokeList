@@ -39,18 +39,16 @@ export class ListComponent implements OnInit {
   onSelectPagination(){
     if(this.form.value.pagination>0){
       let newPagination;
-      console.log(this.form.value.pagination);
       switch(this.form.value.pagination){
         case '2': newPagination=20;break;
         case '3': newPagination=50;break;
         default: newPagination=10; break;
       }
-      console.log('pasfsa',newPagination);
 
       this.changePagination.emit(newPagination);
       // this.changePagination.emit(this.form.value.pagination);
     }
-    // console.log('newPa',this.form.value.pagination);
+    
   }
   private initForm(){
     this.form=new FormGroup({

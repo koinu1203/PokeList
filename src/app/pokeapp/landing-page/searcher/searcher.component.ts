@@ -13,10 +13,8 @@ export class SearcherComponent implements OnInit {
 
   @Output() clickSearch: EventEmitter<string>;
   @Output() keyUp: EventEmitter<string>;
-  @Output() backSpace: EventEmitter<string>;
   constructor(private fb: FormBuilder) {
     this.clickSearch= new EventEmitter();
-    this.backSpace= new EventEmitter();
     this.keyUp= new EventEmitter();
   }
 
@@ -35,14 +33,7 @@ export class SearcherComponent implements OnInit {
       this.clickSearch.emit(this.form.value.name);
     }
   }
-  public onBackSpace(){
-    if (this.form.valid) {
-      this.clickSearch.emit(this.form.value.name);
-    }
-  }
   public onkeyUp(){
-    if (this.form.valid) {
-      this.keyUp.emit(this.form.value.name);
-    }
+    this.keyUp.emit(this.form.value.name);
   }
 }

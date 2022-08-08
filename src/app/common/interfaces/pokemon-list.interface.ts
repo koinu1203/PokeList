@@ -5,4 +5,5 @@ export interface IPokemonList{
 
 export interface IResults{
     name: string;
+    id: number;
 }

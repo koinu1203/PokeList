@@ -7,9 +7,9 @@
                    placeholder="Insert a pokémon"
                    formControlName="name"
                    (keyup)="onkeyUp()"
-                   (keydown.backspace)="onBackSpace()"
+                   oninput="this.value = this.value.toUpperCase()"
                    >
-            <label for="floatingEmptyPlaintextInput"> Insert a pokémon</label>
+            <label for="floatingEmptyPlaintextInput"> Find your pokémon</label>
         </div>
         <button class="input-group-text btn btn-primary"
             (click)="onClickSearch()">
